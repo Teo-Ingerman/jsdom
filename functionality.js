@@ -12,29 +12,34 @@ setInterval(function(){
 
 function animate_image(){
     const audio = document.querySelector("audio");
-    if (!audio.paused){
+    if (audio.paused){
+        return;
+    }
     
-        if (document.getElementById("the_image").style.visibility === "visible"){
-            
-            // tar bort extra text som hamnar framför bildens namn
-            // http://127.0.0.1:5500/Html/js%20dom%20funy/images/img4.png för referens  
-            let img_src = (document.getElementById("the_image").src).slice(50)
+    if (document.getElementById("the_image").style.visibility === "visible") or (document.getElementById("the_image").style.visibility === "");{
+        
+        // tar bort extra text som hamnar framför bildens namn
+        // http://127.0.0.1:5500/Html/js%20dom%20funy/images/img4.png för referens  
+        let img_src = (document.getElementById("the_image").src)
+        let length = img_src.indexOf("img")
+        img_src = img_src.slice(length)
+        // console.log(active_image)
+        active_image = img_src.slice(0, 4)
 
-            active_image = img_src.slice(0, 4)
-
-            
-            iteration = img_src.slice(5)
-            iteration = iteration.slice(0, 1)
-            
-            if (iteration == 1){
-                document.getElementById("the_image").src = `images/${active_image}/2.png`;
-            }
-            else{
-                document.getElementById("the_image").src = `images/${active_image}/1.png`;
-            }
-
-
+        console.log(active_image)
+        iteration = img_src.slice(5)
+        console.log(iteration)
+        // iteration = iteration.slice(0, 1)
+        // console.log(iteration)
+        
+        if (iteration == "1.png"){
+            document.getElementById("the_image").src = `images/${active_image}/2.png`;
         }
+        else{
+            document.getElementById("the_image").src = `images/${active_image}/1.png`;
+        }
+
+
     }
 }
 
@@ -163,16 +168,18 @@ function change_picture(){
     var images = ["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9"]
     
     let active_image = document.getElementById("the_image").src
+
     // tar bort extra text som hamnar framför och efter folcerns namn
     // http://127.0.0.1:5500/Html/js%20dom%20funy/images/img4/1.png för referens
-    active_image = active_image.slice(50)
+    let length = active_image.indexOf("img")
+    active_image = active_image.slice(length)
+
     active_image = active_image.slice(0, 4)
     let index = images.indexOf(active_image)
     images.splice(index, 1)
     
     // väljer sedan en slumpmässig bild av de 8 som är kvar i arrayen
-    let random_index = Math.floor(Math.random() * 8);
-    console.log(active_image)
+    let random_index = Math.floor(Math.random());
     let new_image = images[random_index]
     document.getElementById("the_image").src=`images/${new_image}/1.png`;
 
