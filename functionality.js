@@ -16,7 +16,11 @@ function animate_image(){
         return;
     }
     
+<<<<<<< HEAD
     if (document.getElementById("the_image").style.visibility === "visible") or (document.getElementById("the_image").style.visibility === "");{
+=======
+    if (document.getElementById("the_image").style.visibility === "visible"){
+>>>>>>> cd8c4d4e9584121b62871f9fa5e1cc276066010c
         
         // tar bort extra text som hamnar framför bildens namn
         // http://127.0.0.1:5500/Html/js%20dom%20funy/images/img4.png för referens  
@@ -39,7 +43,10 @@ function animate_image(){
             document.getElementById("the_image").src = `images/${active_image}/1.png`;
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> cd8c4d4e9584121b62871f9fa5e1cc276066010c
     }
 }
 
@@ -179,7 +186,12 @@ function change_picture(){
     images.splice(index, 1)
     
     // väljer sedan en slumpmässig bild av de 8 som är kvar i arrayen
+<<<<<<< HEAD
     let random_index = Math.floor(Math.random());
+=======
+    let random_index = Math.floor(Math.random() * 2);
+
+>>>>>>> cd8c4d4e9584121b62871f9fa5e1cc276066010c
     let new_image = images[random_index]
     document.getElementById("the_image").src=`images/${new_image}/1.png`;
 
